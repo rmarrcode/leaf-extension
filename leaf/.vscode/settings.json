@@ -27,25 +27,18 @@
 	
     "leaf.remoteServers": [
         {
-            "name": "Local Jupyter 1",
+            "name": "Local Development",
             "host": "localhost",
-            "port": 8888,
-            "username": "ryanmarr",
+            "port": 22,
+            "username": "user",
             "privateKeyPath": "~/.ssh/id_rsa"
         },
         {
-            "name": "Local Jupyter 2",
-            "host": "localhost",
-            "port": 8889,
-            "username": "ryanmarr",
-            "privateKeyPath": "~/.ssh/id_rsa"
-        },
-        {
-            "name": "Local Jupyter 3",
-            "host": "localhost",
-            "port": 8890,
-            "username": "ryanmarr",
-            "privateKeyPath": "~/.ssh/id_rsa"
+            "name": "Production Server",
+            "host": "prod.example.com",
+            "port": 22,
+            "username": "prod-user",
+            "privateKeyPath": "~/.ssh/prod_key"
         }
     ]
 

@@ -23,7 +23,10 @@ export function activate(context: vscode.ExtensionContext) {
 	// Register the hello world command
 	let helloWorldCommand = vscode.commands.registerCommand('leaf.helloWorld', () => {
 		console.log('=== HELLO WORLD COMMAND TRIGGERED ===');
-		vscode.window.showInformationMessage('Hello World from Leaf!');
+		const config = vscode.workspace.getConfiguration('leaf');
+		const servers = config.get<RemoteServer[]>('remoteServers') || [];
+		console.log('Available servers:', JSON.stringify(servers, null, 2));
+		vscode.window.showInformationMessage(`Found ${servers.length} configured servers`);
 	});
 
 	// Register the configure server command
