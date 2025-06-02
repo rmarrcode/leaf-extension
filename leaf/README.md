@@ -1,71 +1,96 @@
-# leaf README
+# Leaf - Remote Jupyter Notebook Extension
 
-This is the README for your extension "leaf". After writing up a brief description, we recommend including the following sections.
+This VS Code extension allows you to run Jupyter notebooks on remote servers via SSH. It integrates with VS Code's Jupyter extension to provide a seamless experience for running notebooks on remote machines.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- Configure multiple remote servers for Jupyter execution
+- Secure SSH connection using private key authentication
+- Seamless integration with VS Code's Jupyter interface
+- Support for Python kernels on remote servers
 
-For example if there is an image subfolder under your extension project workspace:
+## Prerequisites
 
-\!\[feature X\]\(images/feature-x.png\)
+- VS Code with Jupyter extension installed
+- Python and Jupyter installed on remote servers
+- SSH access to remote servers
+- SSH private key for authentication
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+## Installation
+
+1. Install the extension from the VS Code marketplace
+2. Install required system dependencies:
+   ```bash
+   # On Ubuntu/Debian
+   sudo apt-get install libssh-dev
+   
+   # On macOS
+   brew install libssh
+   ```
+
+## Configuration
+
+1. Open the Command Palette (Ctrl+Shift+P / Cmd+Shift+P)
+2. Run "Configure Remote Server" command
+3. Enter the following information:
+   - Server name (for display purposes)
+   - SSH host
+   - SSH port (default: 22)
+   - SSH username
+   - Path to SSH private key file
+
+## Usage
+
+1. Open a Jupyter notebook in VS Code
+2. Click the kernel selector in the top right corner
+3. Select a remote server from the list
+4. Run notebook cells as usual - they will execute on the remote server
+
+## Development
+
+### Building from Source
+
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Build the native module:
+   ```bash
+   npm run build:native
+   ```
+4. Compile TypeScript:
+   ```bash
+   npm run compile
+   ```
+
+### Debugging
+
+1. Open the project in VS Code
+2. Press F5 to start debugging
+3. A new VS Code window will open with the extension loaded
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
-
-## Extension Settings
-
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+- VS Code 1.100.0 or higher
+- Node.js 16.x or higher
+- Python 3.x on remote servers
+- Jupyter installed on remote servers
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+- Currently only supports Python kernels
+- Requires manual installation of Jupyter on remote servers
+- SSH key must be in a supported format (RSA, ECDSA, or Ed25519)
 
-## Release Notes
+## Contributing
 
-Users appreciate release notes as you update your extension.
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
 
-### 1.0.0
+## License
 
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+MIT License - see LICENSE file for details

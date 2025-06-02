@@ -1,23 +1,67 @@
 {
   "name": "leaf",
   "displayName": "leaf",
-  "description": "Multi-server distributed training",
+  "description": "Multi-server distributed training with remote Jupyter support",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.100.0"
   },
   "categories": [
+    "Notebooks",
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onStartupFinished",
+    "onCommand:leaf.helloWorld",
+    "onCommand:leaf.configureServer"
+  ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
         "command": "leaf.helloWorld",
         "title": "Hello World"
+      },
+      {
+        "command": "leaf.configureServer",
+        "title": "Configure Remote Server"
       }
-    ]
+    ],
+    "configuration": {
+      "title": "Leaf Remote Jupyter",
+      "properties": {
+        "leaf.remoteServers": {
+          "type": "array",
+          "default": [],
+          "description": "List of remote servers for Jupyter execution",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Server name"
+              },
+              "host": {
+                "type": "string",
+                "description": "SSH host"
+              },
+              "port": {
+                "type": "number",
+                "description": "SSH port"
+              },
+              "username": {
+                "type": "string",
+                "description": "SSH username"
+              },
+              "privateKeyPath": {
+                "type": "string",
+                "description": "Path to SSH private key"
+              }
+            }
+          }
+        }
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
@@ -25,17 +69,25 @@
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
     "lint": "eslint src",
-    "test": "vscode-test"
+    "test": "vscode-test",
+    "build:native": "node-gyp rebuild"
   },
   "devDependencies": {
-    "@types/vscode": "^1.100.0",
     "@types/mocha": "^10.0.10",
     "@types/node": "20.x",
+    "@types/vscode": "^1.100.0",
     "@typescript-eslint/eslint-plugin": "^8.31.1",
     "@typescript-eslint/parser": "^8.31.1",
-    "eslint": "^9.25.1",
-    "typescript": "^5.8.3",
     "@vscode/test-cli": "^0.0.10",
-    "@vscode/test-electron": "^2.5.2"
+    "@vscode/test-electron": "^2.5.2",
+    "bindings": "^1.5.0",
+    "eslint": "^9.25.1",
+    "node-gyp": "^10.0.1",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "node-addon-api": "^8.3.1",
+    "node-pty": "^0.10.1",
+    "ssh2": "^1.15.0"
   }
 }

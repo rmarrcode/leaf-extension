@@ -1,0 +1,7 @@
+[
+  {
+    "directory": "/Users/ryanmarr/Documents/Subnautica_mod/leaf-extension/leaf",
+    "command": "/usr/bin/clang++ -I/opt/homebrew/include -I/opt/homebrew/Cellar/libssh/0.11.1/include -I${workspaceFolder}/node_modules/node-addon-api -I/Users/ryanmarr/Library/Caches/node-gyp/22.16.0/include/node -I/Users/ryanmarr/Library/Caches/node-gyp/22.16.0/include -DTEST_CONFIG_ACTIVE",
+    "file": "src/native/ssh_manager.cpp"
+  }
+] 

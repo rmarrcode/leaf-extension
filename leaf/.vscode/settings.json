@@ -7,5 +7,46 @@
 		"out": true // set this to false to include "out" folder in search results
 	},
 	// Turn off tsc task auto detection since we have the necessary tasks as npm scripts
-	"typescript.tsc.autoDetect": "off"
+	"typescript.tsc.autoDetect": "off",
+	"C_Cpp.default.configurationProvider": "ms-vscode.cpptools",
+	"C_Cpp.default.includePath": [
+		"${workspaceFolder}/**",
+		"/opt/homebrew/include",
+		"/opt/homebrew/Cellar/libssh/0.11.1/include",
+		"${workspaceFolder}/node_modules/node-addon-api",
+		"/Users/ryanmarr/Library/Caches/node-gyp/22.16.0/include/node",
+		"/Users/ryanmarr/Library/Caches/node-gyp/22.16.0/include"
+	],
+	"C_Cpp.default.defines": [
+		"TEST_CONFIG_ACTIVE"
+	],
+	"C_Cpp.default.compilerPath": "/usr/bin/clang++",
+	"C_Cpp.default.cStandard": "c17",
+	"C_Cpp.default.cppStandard": "c++17",
+	"C_Cpp.default.intelliSenseMode": "macos-clang-arm64",
+	
+    "leaf.remoteServers": [
+        {
+            "name": "Local Jupyter 1",
+            "host": "localhost",
+            "port": 8888,
+            "username": "ryanmarr",
+            "privateKeyPath": "~/.ssh/id_rsa"
+        },
+        {
+            "name": "Local Jupyter 2",
+            "host": "localhost",
+            "port": 8889,
+            "username": "ryanmarr",
+            "privateKeyPath": "~/.ssh/id_rsa"
+        },
+        {
+            "name": "Local Jupyter 3",
+            "host": "localhost",
+            "port": 8890,
+            "username": "ryanmarr",
+            "privateKeyPath": "~/.ssh/id_rsa"
+        }
+    ]
+
 }

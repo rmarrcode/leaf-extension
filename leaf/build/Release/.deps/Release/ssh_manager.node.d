@@ -1,0 +1,1 @@
+cmd_Release/ssh_manager.node := c++ -bundle -undefined dynamic_lookup -Wl,-search_paths_first -mmacosx-version-min=11.0 -arch arm64 -L./Release -stdlib=libc++  -o Release/ssh_manager.node Release/obj.target/ssh_manager/src/native/ssh_manager.o Release/nothing.a -L/opt/homebrew/lib -lssh
